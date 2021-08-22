@@ -1,9 +1,18 @@
 #include "minitalk.h"
 
-int main ()
+void pid_print(void)
 {
-	__pid_t p;
+	char *pid_s;
 
-	p = getpid();
-	printf("p = %d\n", p);
+	pid_s = ft_itoa(getpid());
+	write(1, "pid = ", 6);
+	ft_putendl_fd(pid_s, 1);
+	free(pid_s);
 }
+
+// #ifndef TEST
+// int main ()
+// {
+// 	pid_print();
+// }
+// #endif
