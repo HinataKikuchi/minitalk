@@ -1,5 +1,11 @@
 #include <unistd.h>
 #include "./libft/libft.h"
 #include <signal.h>
+#include <stdint.h>
+
+typedef struct s_message{
+	char	c;
+	size_t	s;
+}	t_message;
 
 void pid_print(void);
