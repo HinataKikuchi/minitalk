@@ -1,6 +1,6 @@
 SERVER_NAME	=	server
 CLIENT_NAME	=	client
-LIB		=	libft
+LIBFT_DIR	=	libft
 CFLAGS		=	-Wall -Wextra -Werror
 SRCS		=	main_client.c \
 			main_server.c
