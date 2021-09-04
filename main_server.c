@@ -1,6 +1,8 @@
 #include "minitalk.h"
 
-void	pid_print(void)
+static t_message msg;
+
+static void	pid_print(void)
 {
 	char	*pid_s;
 
@@ -10,13 +12,16 @@ void	pid_print(void)
 	free(pid_s);
 }
 
-void	sig2bit(void)
+static void	sig2bit(int b)
 {
+	// msg.c += ();
 }
 
 int	main(void)
 {
 	pid_print();
+	msg.c = 0;
+	msg.s = 0;
 	while (1)
 	{
 		signal(SIGUSR2, sig2bit);
