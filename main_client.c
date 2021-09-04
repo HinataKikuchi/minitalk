@@ -10,7 +10,7 @@ void	write_error(char *s)
 	exit(0);
 }
 
-void	pid_handler(char *s_pid, char *s)
+static void	pid_handler(char *s_pid, char *s)
 {
 	unsigned int	pid;
 	uint8_t		counter;
