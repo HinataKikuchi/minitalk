@@ -15,6 +15,14 @@ void	pid_print(void)
 static void	sig2bit(int b)
 {
 	// msg.c += ();
+	printf("SIGUSR1\n");
+	// exit(0);
+}
+
+static void	sig_usr2(int a)
+{
+	printf("SIGUSR2\n");
+	// exit(0);
 }
 
 int	main(void)
@@ -24,8 +32,12 @@ int	main(void)
 	msg.s = 0;
 	while (1)
 	{
-		signal(SIGUSR2, sig2bit);
+		/*
+		**sigactionに変更
+		*/
+		signal(SIGUSR2, sig_usr2);
 		signal(SIGUSR1, sig2bit);
+		// printf("%d\n",SIGUSR1);
 		pause();
 	}
 }

@@ -13,28 +13,22 @@ void	write_error(char *s)
 static void	pid_handler(char *s_pid, char *s)
 {
 	unsigned int	pid;
-	uint8_t		counter;
+	int		i;
+	int		j;
 
 	pid = ft_atoi(s_pid);
-	counter = 1 << 6;
-	while (*s)
+	i = 0;
+	j = 0;
+	while (s[j]!='\0')
 	{
-		while (counter)
+		while (i < 8)
 		{
-			if (*s & counter)
-			{
-				if (kill(pid, SIGUSR1) == -1)
-					write_error("BAD PID( !_!)");
-			}
-			else
-			{
-				if (kill(pid, SIGUSR2) == -1)
-					write_error("BAD PID( !_!)");
-			}
-			counter >>= 1;
+			if (kill(pid, (int[]){SIGUSR1,SIGUSR2}[(s[j] >> i) & 1]) == -1)
+				write_error("BAD PID( !_!)");
 			usleep(600);
+			i++;
 		}
-		s++;
+		j++;
 	}
 }
 
@@ -42,7 +36,6 @@ int	main(int argc, char **argv)
 {
 	if (argc != 3)
 		write_error("COMMAND( !_!): ./client [server-pid] [message]");
-	// ft_putendl_fd("Success :-)\n", 1);
 	pid_handler(argv[1], argv[2]);
 	return (0);
 }
