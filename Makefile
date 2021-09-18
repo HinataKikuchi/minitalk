@@ -1,23 +1,40 @@
 SERVER_NAME	=	server
 CLIENT_NAME	=	client
-LIBFT_DIR	=	libft
+CC		=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
+
 SRCS		=	main_client.c \
 			main_server.c
 OBJS		=	${SRCS:.c=.o}
-LIBFT		=	${LIB}/libft.a
-INCLUDE		=	-I./${LIBFT_DIR}
+
+LIBFT_DIR	=	libft
+LIBFT		=	libft.a
+LIBS		=	-L./${LIBFT_DIR} -lft
+INCLUDE		=	-I./${LIBFT_DIR} -I./includes
+
+all :  ${LIBFT} ${SERVER_NAME} ${CLIENT_NAME}
+
 .c.o:
-			${CC} ${CFLAGS} ${INCLUDE} -o $@ -c $<
+			${CC} ${INCLUDE} ${LIBS} -o $@ -c $<
 
-all : $(SERVER_NAME) $(CLIENT_NAME)
+${LIBFT}:
+		make -C ${LIBFT_DIR}
 
-clean:;			$(RM) *.o
-			${MAKE} -C ${LIBFT_DIR} clea
+${SERVER_NAME}:		${OBJS}
+			${CC} main_server.o ${LIBS} -o $@
+			# ${RM} main_server.o
 
-fclean:clean;		$(RM) $(NAME)
-			${MAKE} -C ${LIBFT_DIR} fclean
+${CLIENT_NAME}:		${OBJS}
+			${CC} main_client.o ${LIBS} -o $@
+			# ${RM} main_client.o
 
-re:			fclean $(NAME)
+clean:;			${RM} *.o
+			${MAKE} -C ${LIBFT_DIR} clean
+
+fclean:clean;		${RM} ${CLIENT_NAME} ${SERVER_NAME}
+			${MAKE} fclean -C ${LIBFT_DIR}
+
+
+re:			@fclean all
 
 .PHONY:			re clean fclean all
