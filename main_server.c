@@ -2,7 +2,7 @@
 
 static t_message msg;
 
-static void	pid_print(void)
+void	pid_print(void)
 {
 	char	*pid_s;
 
