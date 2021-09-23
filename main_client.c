@@ -17,10 +17,10 @@ static void	pid_handler(char *s_pid, char *s)
 	int		j;
 
 	pid = ft_atoi(s_pid);
-	i = 0;
 	j = 0;
 	while (s[j]!='\0')
 	{
+		i = 0;
 		while (i < 8)
 		{
 			if (kill(pid, (int[]){SIGUSR1,SIGUSR2}[(s[j] >> i) & 1]) == -1)
