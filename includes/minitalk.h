@@ -9,3 +9,5 @@ typedef struct s_message{
 }	t_message;
 
 void pid_print(void);
+void	write_error(char *s);
+
