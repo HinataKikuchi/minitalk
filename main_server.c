@@ -12,14 +12,14 @@ void	pid_print(void)
 	free(pid_s);
 }
 
-static void	sig2bit(int b)
+static void	recieve_sig1(int b)
 {
 	// msg.c += ();
 	printf("SIGUSR1\n");
 	// exit(0);
 }
 
-static void	sig_usr2(int a)
+static void	recieve_sig2(int a)
 {
 	printf("SIGUSR2\n");
 	// exit(0);
@@ -27,17 +27,19 @@ static void	sig_usr2(int a)
 
 int	main(void)
 {
+	struct sigaction	sig1;
+	struct sigaction	sig2;
 	pid_print();
 	msg.c = 0;
 	msg.s = 0;
+	sig1.sa_handler = &recieve_sig1;
+	sig2.sa_handler = &recieve_sig2;
+	sigaction(SIGUSR1, &sig1, NULL);
+	sigaction(SIGUSR2, &sig2, NULL);
+	// if (sigaction(SIGUSR1, &sig1, NULL) == -1)
+	// 	write_error("( !_!) FAILED SIGACTION1");
+	// if (sigaction(SIGUSR2, &sig2, NULL))
+	// 	write_error("( !_!) FAILED SIGACTION2");
 	while (1)
-	{
-		/*
-		**sigactionに変更
-		*/
-		signal(SIGUSR2, sig_usr2);
-		signal(SIGUSR1, sig2bit);
-		// printf("%d\n",SIGUSR1);
 		pause();
-	}
 }
