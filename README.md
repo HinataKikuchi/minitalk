@@ -72,9 +72,7 @@ $ cd ./minitalk
 $ make
 ```
 
-3. Type command bellow. Then you'll find server pid.
-
-```./server```を実行すると鯖のpid(プロセスID)が表示されます
+3. ```./server```を実行すると鯖のpid(プロセスID)が表示されます
 
 ```
 $ ./server
