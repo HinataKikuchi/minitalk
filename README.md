@@ -13,7 +13,7 @@ Make contacting service between server and client by SIGUSR1 and SIGUSR2.
 🔁 Maybe done.
 
 # HOW TO MOVE IT?(ENGLISH)
-使用方法の説明は[こちら](#https://github.com/HinataKikuchi/minitalk#%E3%81%A9%E3%81%86%E3%82%84%E3%81%A3%E3%81%A6%E5%8B%95%E3%81%8B%E3%81%99%E3%81%8B)
+使用方法の説明は[こちら](#%E3%81%A9%E3%81%86%E3%82%84%E3%81%A3%E3%81%A6%E5%8B%95%E3%81%8B%E3%81%99%E3%81%8B)
 
 
 ※Caution : We need to use two terminals.
