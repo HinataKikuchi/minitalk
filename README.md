@@ -13,6 +13,8 @@ Make contacting service between server and client by SIGUSR1 and SIGUSR2.
 🔁 Maybe done.
 
 # HOW TO MOVE IT?(ENGLISH)
+使用方法の説明は[こちら](#どうやって動かすか？)
+
 
 ※Caution : We need to use two terminals.
 
