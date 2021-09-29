@@ -1,13 +1,23 @@
-#include <unistd.h>
-#include "libft.h"
-#include <signal.h>
-#include <stdint.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkikuchi <hkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/29 18:48:21 by hkikuchi          #+#    #+#             */
+/*   Updated: 2021/09/29 18:48:21 by hkikuchi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-typedef struct s_message{
-	char	c;
-	size_t	s;
-}	t_message;
+#ifndef MINITALK_H
+# define MINITALK_H
+# include <unistd.h>
+# include <signal.h>
+# include <stdint.h>
+# include "libft.h"
 
-void pid_print(void);
+void	pid_print(void);
 void	write_error(char *s);
 
+#endif

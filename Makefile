@@ -22,11 +22,9 @@ ${LIBFT}:
 
 ${SERVER_NAME}:		${OBJS}
 			${CC} main_server.o ${LIBS} -o $@
-			# ${RM} main_server.o
 
 ${CLIENT_NAME}:		${OBJS}
 			${CC} main_client.o ${LIBS} -o $@
-			# ${RM} main_client.o
 
 clean:;			${RM} *.o
 			${MAKE} -C ${LIBFT_DIR} clean
@@ -35,6 +33,6 @@ fclean:clean;		${RM} ${CLIENT_NAME} ${SERVER_NAME}
 			${MAKE} fclean -C ${LIBFT_DIR}
 
 
-re:			@fclean all
+re:			fclean all
 
 .PHONY:			re clean fclean all
