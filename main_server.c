@@ -6,7 +6,7 @@
 /*   By: HINATA <HINATA@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 20:35:03 by HINATA            #+#    #+#             */
-/*   Updated: 2021/09/29 20:38:22 by HINATA           ###   ########.fr       */
+/*   Updated: 2021/10/01 11:03:30 by HINATA           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int	main(void)
 	struct sigaction	sig;
 
 	pid_print();
-	sig.sa_handler = &sig_handler;
-	sigaction(SIGUSR1, &sig, NULL);
-	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
+	{
+		sig.sa_handler = &sig_handler;
+		sigaction(SIGUSR1, &sig, NULL);
+		sigaction(SIGUSR2, &sig, NULL);
 		pause();
+	}
 	return (0);
 }
